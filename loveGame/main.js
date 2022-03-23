@@ -1,5 +1,8 @@
 import App from './App'
 
+import tool from "@/common/js/tool.js"
+Vue.prototype.$tool=tool
+
 // #ifndef VUE3
 import Vue from 'vue'
 Vue.config.productionTip = false

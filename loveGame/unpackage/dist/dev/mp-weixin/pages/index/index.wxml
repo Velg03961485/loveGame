@@ -1,0 +1,1 @@
+<view class="login-page data-v-57280228"><button class="loginInfoBtnS data-v-57280228" open-type="getUserInfo" lang="zh_CN" data-event-opts="{{[['getuserinfo',[['getUserInfoBtn',['$event']]]]]}}" bindgetuserinfo="__e"><icon type="IUicon-weixinfang" size="26" class="data-v-57280228"></icon><view class="loginInfoBtnS_txt data-v-57280228">微信一键登录</view></button></view>
