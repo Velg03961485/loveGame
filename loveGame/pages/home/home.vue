@@ -16,7 +16,7 @@
 				<view class="homeInfo_ce">
 					<view class="homeInfo_ceI">
 						<view class="homeInfo_ceINum">
-							1
+							100
 						</view>
 						<view class="homeInfo_ceITxt">
 							我的仙豆
@@ -48,7 +48,7 @@
 						兑换中心
 					</view>
 				</view>
-				<view class="homeTwoLiIt">
+				<view class="homeTwoLiIt" @click="goLuckDrawBtn">
 					<view class="homeTwoLiIt_img IUt-icon-zhuanpanshezhi">
 						
 					</view>
@@ -75,7 +75,7 @@
 			<view class="homeTwoB">
 				<view class="homeTwoBL">
 					<view class="homeTwoBLImg">
-						<view class="homeTwoBLImg_1 IUt-icon-dayu">
+						<view class="homeTwoBLImg_1" :class="weatherInfo.icon">
 							
 						</view>
 						<view class="homeTwoBLImg_2">

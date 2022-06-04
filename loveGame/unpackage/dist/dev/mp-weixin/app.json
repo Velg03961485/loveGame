@@ -1,8 +1,9 @@
 {
   "pages": [
-    "pages/home/home",
+    "pages/index/index",
     "pages/task/task",
-    "pages/index/index"
+    "pages/home/home",
+    "pages/home/luckDraw"
   ],
   "subPackages": [],
   "window": {

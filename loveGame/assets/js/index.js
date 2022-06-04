@@ -7,9 +7,17 @@ export default {
 				postInfo:{
 					code:'',
 				},
+				windowHeight:'',
 			}
 		},
 		onLoad() {
+			uni.getSystemInfo({
+				success: (res) => { // 需要使用箭头函数，swiper 高度才能设置成功
+				console.log(res)
+					// 获取swiperHeight可以获取的高度，窗口高度减去导航栏高度
+					this.windowHeight = res.windowHeight  + 'px'
+				}
+			});
 			// this.getListData();
 		},
 		onShow() {

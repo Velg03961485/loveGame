@@ -1,5 +1,5 @@
 <template>
-	<view class="login-page">
+	<view class="login-page" :style="{height:windowHeight}">
 		<button open-type="getUserInfo" lang="zh_CN"  @getuserinfo="getUserInfoBtn" class="loginInfoBtnS">
 			<!-- <view class="loginBox">
 				

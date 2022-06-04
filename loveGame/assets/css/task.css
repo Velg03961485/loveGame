@@ -25,6 +25,8 @@
 		width: 100%;
 		display: flex;
 		flex-direction: column;
+		overflow: hidden;
+		overflow-y: auto;
 	}
 	.taskItem{
 		width: calc(100% - 30rpx);
@@ -33,6 +35,7 @@
 		background-color: #fff;
 		margin-top: 30rpx;
 		padding-bottom: 30rpx;
+		flex-shrink:0;
 	}
 	.taskItemOne{
 		width: 100%;

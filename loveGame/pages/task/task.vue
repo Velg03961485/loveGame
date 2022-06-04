@@ -22,7 +22,7 @@
 				<view class="taskItemOne">
 					<view class="taskItemOne_1" :class="item.taskClass"></view>
 					<view class="taskItemOne_2">
-						任务名称：{{item.taskName}}
+						{{item.taskName}}
 					</view>
 					<view class="taskItemOne_2">
 						(10
@@ -34,7 +34,7 @@
 					任务描述:{{item.taskDetail}}
 				</view>
 				<view class="taskItemThree">
-					<view class="taskItemThreeL">任务时间：{{item.taskTime}}</view>
+					<view class="taskItemThreeL">任务时间：</view>
 					<view class="taskItemThreeR" :class="item.taskIsOver == 1 ? 'IUt-icon-checked' : ''">
 						
 					</view>

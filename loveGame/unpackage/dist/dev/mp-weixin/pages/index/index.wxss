@@ -43,7 +43,8 @@
 	line-height: 60rpx;
 }
 .detailText_txt.data-v-57280228{
-	height: 21rpx;
+	width: 570rpx;
+	/* height: 21rpx; */
 	font-size: 22rpx;
 	font-family: PingFangSC, PingFangSC-Regular;
 	font-weight: 400;
