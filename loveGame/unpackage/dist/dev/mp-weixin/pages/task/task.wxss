@@ -1,0 +1,90 @@
+
+.uni-margin-wrap {
+		width: 690rpx;
+		width: 100%;
+		background-color: #fff;
+}
+.swiper {
+		height: 300rpx;
+}
+.swiper-item {
+		display: block;
+		height: 300rpx;
+		line-height: 300rpx;
+		text-align: center;
+}
+.swiper-list {
+		margin-top: 40rpx;
+		margin-bottom: 0;
+}
+.taskList{
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+}
+.taskItem{
+		width: calc(100% - 30rpx);
+		min-height: 130rpx;
+		margin: 0 auto;
+		background-color: #fff;
+		margin-top: 30rpx;
+		padding-bottom: 30rpx;
+}
+.taskItemOne{
+		width: 100%;
+		height: 40rpx;
+		line-height: 40rpx;
+		display: flex;
+		margin-top: 33rpx;
+		margin-left: 29rpx;
+}
+.taskItemOne_1{
+		width: 36rpx;
+		height: 36rpx;
+		font-size: 36rpx;
+}
+.taskItemOne_2{
+		font-size: 32rpx;
+		font-family: PingFang SC, PingFang SC-Bold;
+		font-weight: 700;
+		text-align: left;
+		color: #333333;
+		margin-left: 20rpx;
+		display: flex;
+		align-items: center;
+}
+.taskItemOne_3{
+		width: 30rpx;
+		height: 30rpx;
+}
+.taskItemTwo{
+		width: calc(100% - 60rpx);
+		font-size: 24rpx;
+		font-family: PingFang SC, PingFang SC-Medium;
+		font-weight: 500;
+		text-align: left;
+		color: #333333;
+		margin-left: 29rpx;
+		margin-top: 10rpx;
+}
+.taskItemThree{
+		width: calc(100% - 60rpx);
+		display: flex;
+		justify-content: space-between;
+		margin-left: 29rpx;
+		margin-top: 10rpx;
+}
+.taskItemThreeL{
+		font-size: 22rpx;
+		font-family: PingFang SC, PingFang SC-Medium;
+		font-weight: 500;
+		text-align: left;
+		color: #9ea3aa;
+}
+.taskItemThreeR{
+		border: 1rpx solid #333333;
+		width: 30rpx;
+		height: 30rpx;
+		font-size: 30rpx;
+}
+

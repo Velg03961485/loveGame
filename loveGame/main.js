@@ -1,6 +1,7 @@
 import App from './App'
 
 import tool from "@/common/js/tool.js"
+import './static/iconfont-weapp-icon.css'
 Vue.prototype.$tool=tool
 
 // #ifndef VUE3

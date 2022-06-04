@@ -1,16 +1,46 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
+			"path": "pages/home/home",
+			"style": {
+				"navigationBarTitleText": "小仙主页",
+				"navigationStyle": "custom",
+				"enablePullDownRefresh": true
+			}
+		},{
+			"path": "pages/task/task",
+			"style": {
+				"navigationBarTitleText": "任务世界"
+			}
+		},{
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "uni-app"
+				"navigationBarTitleText": "小仙世界"
 			}
 		}
 	],
+	"tabBar": {
+		"color": "#020101",
+		"selectedColor": "#3E7BF8",
+		"borderStyle": "black",
+		"backgroundColor": "#ffffff",
+		"list": [{
+			"pagePath": "pages/task/task",
+			"iconPath": "static/task_1.png",
+			"selectedIconPath": "static/task_1.png",
+			"text": "任务世界"
+		},
+		{
+			"pagePath": "pages/home/home",
+			"iconPath": "static/task_2.png",
+			"selectedIconPath": "static/task_2.png",
+			"text": "小仙主页"
+		}]
+	},
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",
 		"navigationBarBackgroundColor": "#F8F8F8",
-		"backgroundColor": "#F8F8F8"
+		"backgroundColor": "#f2f3f8"
 	}
 }

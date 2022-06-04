@@ -1,5 +1,7 @@
 {
   "pages": [
+    "pages/home/home",
+    "pages/task/task",
     "pages/index/index"
   ],
   "subPackages": [],
@@ -7,8 +9,27 @@
     "navigationBarTextStyle": "black",
     "navigationBarTitleText": "uni-app",
     "navigationBarBackgroundColor": "#F8F8F8",
-    "backgroundColor": "#F8F8F8"
+    "backgroundColor": "#f2f3f8"
   },
-  "usingComponents": {},
-  "sitemapLocation": "sitemap.json"
+  "tabBar": {
+    "color": "#020101",
+    "selectedColor": "#3E7BF8",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/task/task",
+        "iconPath": "static/task_1.png",
+        "selectedIconPath": "static/task_1.png",
+        "text": "任务世界"
+      },
+      {
+        "pagePath": "pages/home/home",
+        "iconPath": "static/task_2.png",
+        "selectedIconPath": "static/task_2.png",
+        "text": "小仙主页"
+      }
+    ]
+  },
+  "usingComponents": {}
 }

@@ -48,6 +48,9 @@ export default {
 									success:(res)=>{
 										// 第一次授权的时候触发
 										console.log(res);
+										uni.switchTab({
+										    url: '/pages/task/task'
+										});
 									},
 									complete:()=>{
 										_this.loading=false	
@@ -68,7 +71,9 @@ export default {
 								success:(res)=>{
 									console.log(res);
 									console.log('开导开导开的课  登录成功')
-									
+									uni.switchTab({
+									    url: '/pages/task/task'
+									});
 								},
 								complete:()=>{
 									_this.loading=false	
