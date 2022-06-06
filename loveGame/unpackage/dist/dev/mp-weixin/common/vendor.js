@@ -10250,6 +10250,17 @@ var _taskData = _interopRequireDefault(__webpack_require__(/*! @/pages/task/task
     },
     durationChange: function durationChange(e) {
       this.duration = e.target.value;
+    },
+
+
+    // 任务完成
+    takeOverBtn: function takeOverBtn(item, index) {
+      if (item.taskIsOver == 1) {
+
+      } else {
+        this.taskData[index].taskIsOver = 1;
+      }
+
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
@@ -34362,7 +34373,36 @@ module.exports = TokenVerifier;
 /*! exports provided: 0, 1, 2, 3, 4, 5, 6, 7, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("[{\"taskName\":\"十点半洗漱\",\"taskClass\":\"IUt-icon-xishu\",\"taskScore\":10,\"taskDetail\":\"当天需要十点半去洗漱，在半小时内完成洗漱，当前任务才算成功，成功后可获得10仙豆\",\"taskIsOver\":0},{\"taskName\":\"十二点睡觉\",\"taskClass\":\"IUt-icon-shuijuenv\",\"taskScore\":10,\"taskDetail\":\"当天需要十点半去洗漱，在半小时内完成洗漱，当前任务才算成功，成功后可获得10仙豆\",\"taskIsOver\":0},{\"taskName\":\"九点之后不吃零食\",\"taskClass\":\"IUt-icon-tiantianquan-tiandian-gaodian-lingshi\",\"taskScore\":10,\"taskDetail\":\"当天需要十点半去洗漱，在半小时内完成洗漱，当前任务才算成功，成功后可获得10仙豆\",\"taskIsOver\":0},{\"taskName\":\"每天敷面膜\",\"taskClass\":\"IUt-icon-mianmo\",\"taskScore\":10,\"taskDetail\":\"当天需要十点半去洗漱，在半小时内完成洗漱，当前任务才算成功，成功后可获得10仙豆\",\"taskIsOver\":0},{\"taskName\":\"给仙丹铲粑粑\",\"taskClass\":\"IUt-icon-maomi\",\"taskScore\":10,\"taskDetail\":\"当天需要十点半去洗漱，在半小时内完成洗漱，当前任务才算成功，成功后可获得10仙豆\",\"taskIsOver\":0},{\"taskName\":\"阅读半小时\",\"taskClass\":\"IUt-icon-tubiaozhizuomoban-\",\"taskScore\":10,\"taskDetail\":\"当天需要十点半去洗漱，在半小时内完成洗漱，当前任务才算成功，成功后可获得10仙豆\",\"taskIsOver\":0},{\"taskName\":\"喝蔬菜汁\",\"taskClass\":\"IUt-icon-shucai\",\"taskScore\":10,\"taskDetail\":\"当天需要十点半去洗漱，在半小时内完成洗漱，当前任务才算成功，成功后可获得10仙豆\",\"taskIsOver\":0},{\"taskName\":\"跳健身操\",\"taskClass\":\"IUt-icon-tiaocao\",\"taskScore\":10,\"taskDetail\":\"当天需要十点半去洗漱，在半小时内完成洗漱，当前任务才算成功，成功后可获得10仙豆\",\"taskIsOver\":0}]");
+module.exports = JSON.parse("[{\"taskName\":\"十点半洗漱\",\"taskClass\":\"IUt-icon-xishu\",\"taskScore\":10,\"taskDetail\":\"当天需要十点半去洗漱，在半小时内完成洗漱，当前任务才算成功，成功后可获得10仙豆\",\"taskIsOver\":0},{\"taskName\":\"十二点睡觉\",\"taskClass\":\"IUt-icon-shuijuenv\",\"taskScore\":20,\"taskDetail\":\"当天需要十二点之前上床睡觉，当前任务才算成功，成功后可获得20仙豆\",\"taskIsOver\":0},{\"taskName\":\"九点之后不吃零食\",\"taskClass\":\"IUt-icon-tiantianquan-tiandian-gaodian-lingshi\",\"taskScore\":10,\"taskDetail\":\"当天需要九点之后不吃零食，并喝适量的水补充，任务才算成功，成功后可获得10仙豆\",\"taskIsOver\":0},{\"taskName\":\"每天敷面膜\",\"taskClass\":\"IUt-icon-mianmo\",\"taskScore\":10,\"taskDetail\":\"为了每天变的美美的，需要在睡前敷面膜，任务才算成功，成功后可获得10仙豆\",\"taskIsOver\":0},{\"taskName\":\"给仙丹铲粑粑\",\"taskClass\":\"IUt-icon-maomi\",\"taskScore\":20,\"taskDetail\":\"每天如果自己主动给仙丹铲粑粑一次，每次可奖励20仙豆，每天上限三次\",\"taskIsOver\":0},{\"taskName\":\"阅读半小时\",\"taskClass\":\"IUt-icon-tubiaozhizuomoban-\",\"taskScore\":10,\"taskDetail\":\"每天适量补充一些知识充实自己，阅读半小时就会有奖励哦，可获得10仙豆\",\"taskIsOver\":0},{\"taskName\":\"喝蔬菜汁\",\"taskClass\":\"IUt-icon-shucai\",\"taskScore\":10,\"taskDetail\":\"补充维生素，膳食纤维，记得喝一杯蔬菜汁吧，喝一次奖励就奖励10仙豆\",\"taskIsOver\":0},{\"taskName\":\"跳健身操\",\"taskClass\":\"IUt-icon-tiaocao\",\"taskScore\":20,\"taskDetail\":\"要想身材苗条那就跳起来吧，十五分钟健身操，达到一次就奖励20仙豆，没有上限喔\",\"taskIsOver\":0}]");
+
+/***/ }),
+/* 226 */,
+/* 227 */,
+/* 228 */,
+/* 229 */,
+/* 230 */
+/*!*********************************************************************************************************!*\
+  !*** /Users/youfu/Desktop/velg/github/loveGame/loveGame/assets/js/exchange.js?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_12_1_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_script_js_exchange_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../../../Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli/node_modules/babel-loader/lib!../../../../../../../../../Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli/node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--12-1!../../../../../../../../../Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli/node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./exchange.js?vue&type=script&lang=js& */ 231);
+/* harmony import */ var _Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_12_1_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_script_js_exchange_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_12_1_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_script_js_exchange_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_12_1_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_script_js_exchange_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_12_1_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_script_js_exchange_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_12_1_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_script_js_exchange_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+/* 231 */
+/*!************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--12-1!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!/Users/youfu/Desktop/velg/github/loveGame/loveGame/assets/js/exchange.js?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
 
 /***/ })
 ]]);

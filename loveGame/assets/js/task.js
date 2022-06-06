@@ -39,6 +39,17 @@ export default{
 		},
 		durationChange(e) {
 			this.duration = e.target.value
-		}
+		},
+		
+		
+		// 任务完成
+		takeOverBtn(item,index){
+			if(item.taskIsOver == 1){
+				
+			}else{
+				this.taskData[index].taskIsOver = 1;
+			}
+			
+		},
 	},
 }

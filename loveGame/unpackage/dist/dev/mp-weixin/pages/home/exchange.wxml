@@ -1,0 +1,1 @@
+<view class="exchange-page"><view class="exchangeIt"><image class="exchangeItImg" src="../../static/exc_1.png" mode="aspectFill"></image><view class="exchangeItDe">兑换此奖励需要消耗1000仙豆</view><view class="exchangeItBtn"><view class="exchangeItBtnL">1000仙豆</view><view class="exchangeItBtnR">兑换</view></view></view></view>

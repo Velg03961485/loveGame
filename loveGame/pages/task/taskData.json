@@ -9,50 +9,50 @@
 	{
 		"taskName":"十二点睡觉",
 		"taskClass":"IUt-icon-shuijuenv",
-		"taskScore":10,
-		"taskDetail":"当天需要十点半去洗漱，在半小时内完成洗漱，当前任务才算成功，成功后可获得10仙豆",
+		"taskScore":20,
+		"taskDetail":"当天需要十二点之前上床睡觉，当前任务才算成功，成功后可获得20仙豆",
 		"taskIsOver":0
 	},
 	{
 		"taskName":"九点之后不吃零食",
 		"taskClass":"IUt-icon-tiantianquan-tiandian-gaodian-lingshi",
 		"taskScore":10,
-		"taskDetail":"当天需要十点半去洗漱，在半小时内完成洗漱，当前任务才算成功，成功后可获得10仙豆",
+		"taskDetail":"当天需要九点之后不吃零食，并喝适量的水补充，任务才算成功，成功后可获得10仙豆",
 		"taskIsOver":0
 	},
 	{
 		"taskName":"每天敷面膜",
 		"taskClass":"IUt-icon-mianmo",
 		"taskScore":10,
-		"taskDetail":"当天需要十点半去洗漱，在半小时内完成洗漱，当前任务才算成功，成功后可获得10仙豆",
+		"taskDetail":"为了每天变的美美的，需要在睡前敷面膜，任务才算成功，成功后可获得10仙豆",
 		"taskIsOver":0
 	},
 	{
 		"taskName":"给仙丹铲粑粑",
 		"taskClass":"IUt-icon-maomi",
-		"taskScore":10,
-		"taskDetail":"当天需要十点半去洗漱，在半小时内完成洗漱，当前任务才算成功，成功后可获得10仙豆",
+		"taskScore":20,
+		"taskDetail":"每天如果自己主动给仙丹铲粑粑一次，每次可奖励20仙豆，每天上限三次",
 		"taskIsOver":0
 	},
 	{
 		"taskName":"阅读半小时",
 		"taskClass":"IUt-icon-tubiaozhizuomoban-",
 		"taskScore":10,
-		"taskDetail":"当天需要十点半去洗漱，在半小时内完成洗漱，当前任务才算成功，成功后可获得10仙豆",
+		"taskDetail":"每天适量补充一些知识充实自己，阅读半小时就会有奖励哦，可获得10仙豆",
 		"taskIsOver":0
 	},
 	{
 		"taskName":"喝蔬菜汁",
 		"taskClass":"IUt-icon-shucai",
 		"taskScore":10,
-		"taskDetail":"当天需要十点半去洗漱，在半小时内完成洗漱，当前任务才算成功，成功后可获得10仙豆",
+		"taskDetail":"补充维生素，膳食纤维，记得喝一杯蔬菜汁吧，喝一次奖励就奖励10仙豆",
 		"taskIsOver":0
 	},
 	{
 		"taskName":"跳健身操",
 		"taskClass":"IUt-icon-tiaocao",
-		"taskScore":10,
-		"taskDetail":"当天需要十点半去洗漱，在半小时内完成洗漱，当前任务才算成功，成功后可获得10仙豆",
+		"taskScore":20,
+		"taskDetail":"要想身材苗条那就跳起来吧，十五分钟健身操，达到一次就奖励20仙豆，没有上限喔",
 		"taskIsOver":0
 	}
 ]

@@ -5,27 +5,33 @@
 			<swiper class="swiper" circular :indicator-dots="indicatorDots" :autoplay="autoplay" :interval="interval"
 				:duration="duration">
 				<swiper-item>
-					<view class="swiper-item uni-bg-red">A</view>
+					<view class="swiper-item uni-bg-red">
+						<image src="../../static/swp_3.jpeg" mode="aspectFill"></image>
+					</view>
 				</swiper-item>
 				<swiper-item>
-					<view class="swiper-item uni-bg-green">B</view>
+					<view class="swiper-item uni-bg-green">
+						<image src="../../static/swp_2.jpeg" mode="aspectFill"></image>
+					</view>
 				</swiper-item>
 				<swiper-item>
-					<view class="swiper-item uni-bg-blue">C</view>
+					<view class="swiper-item uni-bg-blue">
+						<image src="../../static/swp_1.jpeg" mode="aspectFill"></image>
+					</view>
 				</swiper-item>
 			</swiper>
 		</view>
 		
 		<view class="taskList" :style="{height:listHeight}">
 			
-			<view class="taskItem" v-for="(item,index) in taskData" :key="index">
+			<view class="taskItem" v-for="(item,index) in taskData" :key="index" @click="takeOverBtn(item,index)">
 				<view class="taskItemOne">
 					<view class="taskItemOne_1" :class="item.taskClass"></view>
 					<view class="taskItemOne_2">
 						{{item.taskName}}
 					</view>
 					<view class="taskItemOne_2">
-						(10
+						({{item.taskScore}}
 						<view class="taskItemOne_3 IUt-icon-shiwutubiao-39-copy"></view>
 						)
 					</view>
