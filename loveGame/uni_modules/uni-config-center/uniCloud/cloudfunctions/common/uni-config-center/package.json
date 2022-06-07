@@ -1,13 +1,12 @@
 {
-	"name" : "uni-config-center",
-	"version" : "0.0.2",
-	"description" : "配置中心",
-	"main" : "index.js",
-	"keywords" : [],
-	"author" : "DCloud",
-	"license" : "Apache-2.0",
-	"dependencies" : 
-	{
-		"uni-id" : "file:../../../../../uni-id/uniCloud/cloudfunctions/common/uni-id"
-	}
+  "name": "uni-config-center",
+  "version": "0.0.2",
+  "description": "配置中心",
+  "main": "index.js",
+  "keywords": [],
+  "author": "DCloud",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "hello-common": "file:../../../../../../uniCloud-tcb/cloudfunctions/common/hello-common"
+  }
 }

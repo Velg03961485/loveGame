@@ -12,7 +12,8 @@ export default{
 			listHeight:'',
 			
 			
-			taskData:taskData,
+			// taskData:taskData,
+			taskData:[],
 		}
 	},
 	onLoad(){
@@ -25,6 +26,7 @@ export default{
 				this.listHeight = res.windowHeight - 150  + 'px'
 			}
 		});
+		this.getListData();
 		
 	},
 	methods:{
@@ -41,6 +43,18 @@ export default{
 			this.duration = e.target.value
 		},
 		
+		
+		getListData(){
+			uniCloud.callFunction({
+			    name: 'get_task_list',
+			    data: {  }
+			  })
+			  .then(res => {
+					console.log(res)
+					let Data = res.result.data;
+					this.taskData = Data;
+				});
+		},
 		
 		// 任务完成
 		takeOverBtn(item,index){

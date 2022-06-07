@@ -1,14 +1,14 @@
 <template>
 	<view class="exchange-page">
 		
-		<view class="exchangeIt">
-			<image src="../../static/exc_1.png" mode="aspectFill" class="exchangeItImg"></image>
+		<view class="exchangeIt" v-for="(item,index) in exchangeData" :key="index">
+			<image :src="imgData[item.image]" mode="aspectFill" class="exchangeItImg"></image>
 			<view class="exchangeItDe">
-				兑换此奖励需要消耗1000仙豆
+				{{item.desc}}
 			</view>
 			<view class="exchangeItBtn">
 				<view class="exchangeItBtnL">
-					1000仙豆
+					{{item.exchangeNum}}仙豆
 				</view>
 				<view class="exchangeItBtnR">
 					兑换

@@ -40,7 +40,7 @@
 				娱乐中心
 			</view>
 			<view class="homeTwoLi">
-				<view class="homeTwoLiIt">
+				<view class="homeTwoLiIt" @click="goExchangeBtn">
 					<view class="homeTwoLiIt_img  IUt-icon-duihuan">
 						
 					</view>

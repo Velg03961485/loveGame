@@ -1,8 +1,8 @@
 {
   "pages": [
-    "pages/home/exchange",
-    "pages/task/task",
     "pages/index/index",
+    "pages/task/task",
+    "pages/home/exchange",
     "pages/home/home",
     "pages/home/luckDraw"
   ],

@@ -3,6 +3,7 @@
 	width: 100%;
 	display: flex;
 	flex-wrap: wrap;
+	padding-bottom: 30rpx;
 }
 .exchangeIt{
 	width: 335rpx;
@@ -12,8 +13,8 @@
 	border-radius: 10rpx;
 	display: flex;
 	flex-direction: column;
-	margin-left: 30rpx;
-	margin-right: 30rpx;
+	margin-left: 20rpx;
+	margin-right: 20rpx;
 	margin-top: 30rpx;
 }
 .exchangeItImg{

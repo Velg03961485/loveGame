@@ -1,0 +1,23 @@
+[
+	{
+		"image":"exc_1",
+		"desc":"国内景点五日游",
+		"exchangeNum":1000
+	},{
+		"image":"exc_2",
+		"desc":"精美首饰一份",
+		"exchangeNum":2000
+	},{
+		"image":"exc_3",
+		"desc":"豪华包包",
+		"exchangeNum":10000
+	},{
+		"image":"exc_4",
+		"desc":"香奈儿最新香水",
+		"exchangeNum":3000
+	},{
+		"image":"exc_5",
+		"desc":"NB运动鞋",
+		"exchangeNum":5000
+	}
+]

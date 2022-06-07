@@ -126,6 +126,13 @@ import weatherData from "@/pages/home/weatherData.json"
 				
 			},
 			
+			// 兑换中心
+			goExchangeBtn(){
+				uni.navigateTo({
+				    url: '/pages/home/exchange'
+				});
+			},
+			
 
       }
     }
