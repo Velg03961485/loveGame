@@ -6,6 +6,8 @@ Vue.prototype.$tool=tool
 
 // #ifndef VUE3
 import Vue from 'vue'
+import moment from 'moment';
+import 'moment/locale/zh-cn';
 Vue.config.productionTip = false
 App.mpType = 'app'
 const app = new Vue({

@@ -1,10 +1,12 @@
 
 
 import taskData from "@/pages/task/taskData.json"
-
+import moment from 'moment';
+import 'moment/locale/zh-cn';
 export default{
 	data(){
 		return{
+			moment,
 			indicatorDots: true,
 			autoplay: true,
 			interval: 2000,
@@ -14,6 +16,7 @@ export default{
 			
 			// taskData:taskData,
 			taskData:[],
+			postTime:'',
 		}
 	},
 	onLoad(){
@@ -26,6 +29,8 @@ export default{
 				this.listHeight = res.windowHeight - 150  + 'px'
 			}
 		});
+		console.log(this.moment(new Date).format('Y-MM-DD'))
+		this.postTime = this.moment(new Date).format('Y-MM-DD');
 		this.getListData();
 		
 	},
@@ -47,7 +52,9 @@ export default{
 		getListData(){
 			uniCloud.callFunction({
 			    name: 'get_task_list',
-			    data: {  }
+			    data: { 
+					postTime:this.postTime,
+				}
 			  })
 			  .then(res => {
 					console.log(res)

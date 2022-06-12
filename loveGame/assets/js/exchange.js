@@ -17,13 +17,28 @@ export default{
 				exc_4:exc_4,
 				exc_5:exc_5,
 			},
-			exchangeData:exchangeData,
+			// exchangeData:exchangeData,
+			exchangeData:[],
 		}
 	},
 	onLoad(){
 		console.log(this.exchangeData);
+		this.getListData();
 	},
 	methods:{
+		
+		// 获取可兑换列表
+		getListData(){
+			uniCloud.callFunction({
+			    name: 'get_exchange_list',
+			    data: {  }
+			  })
+			  .then(res => {
+					console.log(res)
+					let Data = res.result.data;
+					this.exchangeData = Data;
+				});
+		},
 		
 	},
 }
