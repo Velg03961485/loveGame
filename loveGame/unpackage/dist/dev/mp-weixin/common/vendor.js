@@ -31304,7 +31304,8 @@ __webpack_require__(/*! moment/locale/zh-cn */ 153);function _interopRequireDefa
   },
   onLoad: function onLoad() {var _this = this;
     // console.log(this.taskData)
-    console.log(this.taskData);
+    // console.log(this.taskData)
+
     uni.getSystemInfo({
       success: function success(res) {// 需要使用箭头函数，swiper 高度才能设置成功
         console.log(res);
@@ -31312,7 +31313,7 @@ __webpack_require__(/*! moment/locale/zh-cn */ 153);function _interopRequireDefa
         _this.listHeight = res.windowHeight - 150 + 'px';
       } });
 
-    console.log(this.moment(new Date()).format('Y-MM-DD'));
+    // console.log(this.moment(new Date).format('Y-MM-DD'))
     this.postTime = this.moment(new Date()).format('Y-MM-DD');
     this.getListData();
 
@@ -31333,6 +31334,9 @@ __webpack_require__(/*! moment/locale/zh-cn */ 153);function _interopRequireDefa
 
 
     getListData: function getListData() {var _this2 = this;
+      uni.showLoading({
+        title: '加载中' });
+
       uniCloud.callFunction({
         name: 'get_task_list',
         data: {
@@ -31340,6 +31344,7 @@ __webpack_require__(/*! moment/locale/zh-cn */ 153);function _interopRequireDefa
 
 
       then(function (res) {
+        uni.hideLoading();
         console.log(res);
         var Data = res.result.data;
         _this2.taskData = Data;
@@ -31347,11 +31352,33 @@ __webpack_require__(/*! moment/locale/zh-cn */ 153);function _interopRequireDefa
     },
 
     // 任务完成
-    takeOverBtn: function takeOverBtn(item, index) {
+    takeOverBtn: function takeOverBtn(item, index) {var _this3 = this;
       if (item.taskIsOver == 1) {
 
       } else {
-        this.taskData[index].taskIsOver = 1;
+        uniCloud.callFunction({
+          name: 'update_task_status',
+          data: {
+            taskTime: this.postTime,
+            keyWord: item.keyWord,
+            id: item._id } }).
+
+
+        then(function (res) {
+          console.log(res);
+          var Data = res.result.data;
+          if (res.result.code == 200) {
+            uni.showToast({
+              title: Data,
+              icon: 'none' });
+
+            setTimeout(function () {
+              _this3.taskData = [];
+              _this3.getListData();
+            }, 1000);
+
+          }
+        });
       }
 
     } } };exports.default = _default;

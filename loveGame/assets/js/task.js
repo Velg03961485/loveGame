@@ -21,7 +21,8 @@ export default{
 	},
 	onLoad(){
 		// console.log(this.taskData)
-		console.log(this.taskData)
+		// console.log(this.taskData)
+		
 		uni.getSystemInfo({
 			success: (res) => { // 需要使用箭头函数，swiper 高度才能设置成功
 			console.log(res)
@@ -29,7 +30,7 @@ export default{
 				this.listHeight = res.windowHeight - 150  + 'px'
 			}
 		});
-		console.log(this.moment(new Date).format('Y-MM-DD'))
+		// console.log(this.moment(new Date).format('Y-MM-DD'))
 		this.postTime = this.moment(new Date).format('Y-MM-DD');
 		this.getListData();
 		
@@ -50,6 +51,9 @@ export default{
 		
 		
 		getListData(){
+			uni.showLoading({
+				title: '加载中'
+			});
 			uniCloud.callFunction({
 			    name: 'get_task_list',
 			    data: { 
@@ -57,6 +61,7 @@ export default{
 				}
 			  })
 			  .then(res => {
+					uni.hideLoading();
 					console.log(res)
 					let Data = res.result.data;
 					this.taskData = Data;
@@ -68,7 +73,29 @@ export default{
 			if(item.taskIsOver == 1){
 				
 			}else{
-				this.taskData[index].taskIsOver = 1;
+				uniCloud.callFunction({
+					name: 'update_task_status',
+					data: { 
+						taskTime:this.postTime,
+						keyWord:item.keyWord,
+						id:item._id
+					}
+				  })
+				  .then(res => {
+						console.log(res)
+						let Data = res.result.data;
+						if(res.result.code == 200){
+							uni.showToast({
+							    title: Data,
+								icon:'none',
+							});
+							setTimeout(()=>{
+								this.taskData = [];
+								this.getListData();
+							},1000)
+							
+						}
+					});
 			}
 			
 		},

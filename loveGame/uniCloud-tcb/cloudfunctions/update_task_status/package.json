@@ -1,0 +1,7 @@
+{
+  "name": "update_task_status",
+  "dependencies": {},
+  "extensions": {
+    "uni-cloud-jql": {}
+  }
+}
