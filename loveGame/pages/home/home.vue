@@ -16,7 +16,7 @@
 				<view class="homeInfo_ce">
 					<view class="homeInfo_ceI">
 						<view class="homeInfo_ceINum">
-							100
+							{{userXiandou.xiandou}}
 						</view>
 						<view class="homeInfo_ceITxt">
 							我的仙豆
@@ -25,7 +25,7 @@
 					<view class="homeInfo_ceLine"></view>
 					<view class="homeInfo_ceI">
 						<view class="homeInfo_ceINum">
-							1
+							{{userXiandou.exchangeNum}}
 						</view>
 						<view class="homeInfo_ceITxt">
 							我的兑换

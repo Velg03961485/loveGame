@@ -107,6 +107,7 @@
 	margin-top: 20rpx;
 	display: flex;
 	flex-direction: column;
+	flex-shrink:0;
 }
 .homeTwoTit{
 	height: 48rpx;
@@ -150,6 +151,7 @@
 	margin-top: 20rpx;
 	display: flex;
 	flex-direction: column;
+	flex-shrink:0;
 }
 .homeTwoB{
 	width: 100%;

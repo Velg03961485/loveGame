@@ -56,6 +56,7 @@ export default {
 									success:(res)=>{
 										// 第一次授权的时候触发
 										console.log(res);
+										uni.setStorageSync('token', res.token);
 										uni.switchTab({
 										    url: '/pages/task/task'
 										});
@@ -78,6 +79,7 @@ export default {
 							_this.$tool.getTokenValue({
 								success:(res)=>{
 									console.log(res);
+									uni.setStorageSync('token', res.token);
 									console.log('开导开导开的课  登录成功')
 									uni.switchTab({
 									    url: '/pages/task/task'

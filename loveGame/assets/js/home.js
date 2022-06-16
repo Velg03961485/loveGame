@@ -16,17 +16,20 @@ import weatherData from "@/pages/home/weatherData.json"
 				areaId:'',
 				weatherInfo:{},
 				weatherData:weatherData,
+				
+				token:'',
+				userXiandou:{
+					xiandou:0,
+					exchangeNum:0,
+				},
           }
       },
 	  onShow(){
-	  		  /* setTimeout(function() {
-	  		  	wx.showTabBar();
-	  		  }, 500) */
-			  // this.$data.adaptation = this.signAdaptation();
-			  console.log(this.$data.adaptation)
-			  this.areaId = uni.getStorageSync('areaId')
+	  		
+			this.getCurrentUserInfo();
 	  },
 	  onLoad() {
+		  this.$data.token = uni.getStorageSync('token');
 			  uni.getSystemInfo({
 				success:  (res) => {     // 需要使用箭头函数，swiper 高度才能设置成功
 					// 获取windowHeight可以获取的高度，窗口高度减去导航栏高度
@@ -48,30 +51,29 @@ import weatherData from "@/pages/home/weatherData.json"
 			 
 			});
 			console.log(this.weatherData)
-	
+			
 	  },
       created() {
 
       },
       methods:{
 
-
-			// 个人信息
-			goMyInfoBtn(){
-				let openId = uni.getStorageSync('openId');
-				if(openId === '' || openId === null || openId === undefined){
-					// 这时候需要用户重新登录
-					uni.reLaunch({
-					    url: '/pages/login/login'
+			// 获取当前用户的仙豆和兑换数据
+			getCurrentUserInfo(){
+				uniCloud.callFunction({
+				    name: 'update_xiandou',
+				    data: { 
+						token:this.token,
+					}
+				  })
+				  .then(res => {
+						uni.hideLoading();
+						console.log(res)
+						let Data = res.result.data;
+						this.userXiandou = Data;
 					});
-					return;
-				}else{
-					uni.navigateTo({
-					    url: '../my/myInfo'
-					});
-				}
-				
 			},
+			
 			
 			// 获取天气预报
 			getweatherInfo(){

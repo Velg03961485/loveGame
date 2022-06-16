@@ -1,9 +1,11 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
-			"path": "pages/task/task",
+			"path": "pages/home/home",
 			"style": {
-				"navigationBarTitleText": "任务世界"
+				"navigationBarTitleText": "小仙主页",
+				"navigationStyle": "custom",
+				"enablePullDownRefresh": true
 			}
 		},{
 			"path": "pages/index/index",
@@ -11,16 +13,14 @@
 				"navigationBarTitleText": "小仙世界"
 			}
 		},{
+			"path": "pages/task/task",
+			"style": {
+				"navigationBarTitleText": "任务世界"
+			}
+		},{
 			"path": "pages/home/exchange",
 			"style": {
 				"navigationBarTitleText": "兑换中心"
-			}
-		},{
-			"path": "pages/home/home",
-			"style": {
-				"navigationBarTitleText": "小仙主页",
-				"navigationStyle": "custom",
-				"enablePullDownRefresh": true
 			}
 		},{
 			"path": "pages/home/luckDraw",

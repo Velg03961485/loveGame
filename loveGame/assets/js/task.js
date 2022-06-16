@@ -17,12 +17,13 @@ export default{
 			// taskData:taskData,
 			taskData:[],
 			postTime:'',
+			token:'',
 		}
 	},
 	onLoad(){
 		// console.log(this.taskData)
 		// console.log(this.taskData)
-		
+		this.$data.token = uni.getStorageSync('token');
 		uni.getSystemInfo({
 			success: (res) => { // 需要使用箭头函数，swiper 高度才能设置成功
 			console.log(res)
@@ -78,7 +79,8 @@ export default{
 					data: { 
 						taskTime:this.postTime,
 						keyWord:item.keyWord,
-						id:item._id
+						id:item._id,
+						token:this.token,
 					}
 				  })
 				  .then(res => {

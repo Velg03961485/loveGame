@@ -8,6 +8,7 @@ exports.main = async (event, context) => {
 	let callback = {};
 	let task_time = event.taskTime;
 	let key_word = event.keyWord;
+	let openId = event.token;
 	let id = event.id;
 	const dbCmd = db.command
 	const collection = db.collection('task_day');
@@ -19,6 +20,7 @@ exports.main = async (event, context) => {
 	let hasResData = isHasRes.data[0];
 	console.log(hasResData)
 	if(hasResData[key_word] == 0){
+		// 更新任务状态
 		let arr = {};
 		arr[key_word] = 1;
 		console.log(arr);
@@ -26,6 +28,30 @@ exports.main = async (event, context) => {
 			task_time: dbCmd.eq(task_time)
 		}).update(arr);
 		console.log(res);
+		// 更新仙豆
+		const taskListInfo = db.collection('task_list');
+		let taskListData = await taskListInfo.where({
+			keyWord: dbCmd.eq(key_word)
+		})
+		.get();
+		console.log(taskListData);
+		let taskScore = taskListData.data[0].taskScore;
+		const xiandouDB = db.collection('user_xiandou');
+		xiandouDB.where({
+			openId: dbCmd.eq(openId)
+		})
+		.get()
+		.then((res)=>{
+			console.log(res);
+			let Data = res.data[0];
+			let pushArr = {
+				'xiandou': Data['xiandou'] + taskScore
+			};
+			xiandouDB.where({
+				openId: dbCmd.eq(openId)
+			}).update(pushArr);
+		})
+		
 		callback = {
 			data:'操作成功',
 			mesg: 'success',

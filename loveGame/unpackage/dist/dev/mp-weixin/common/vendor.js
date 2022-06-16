@@ -31299,13 +31299,14 @@ __webpack_require__(/*! moment/locale/zh-cn */ 153);function _interopRequireDefa
 
       // taskData:taskData,
       taskData: [],
-      postTime: '' };
+      postTime: '',
+      token: '' };
 
   },
   onLoad: function onLoad() {var _this = this;
     // console.log(this.taskData)
     // console.log(this.taskData)
-
+    this.$data.token = uni.getStorageSync('token');
     uni.getSystemInfo({
       success: function success(res) {// 需要使用箭头函数，swiper 高度才能设置成功
         console.log(res);
@@ -31361,7 +31362,8 @@ __webpack_require__(/*! moment/locale/zh-cn */ 153);function _interopRequireDefa
           data: {
             taskTime: this.postTime,
             keyWord: item.keyWord,
-            id: item._id } }).
+            id: item._id,
+            token: this.token } }).
 
 
         then(function (res) {
@@ -31482,6 +31484,7 @@ console.log(jwt);var _default =
                     success: function success(res) {
                       // 第一次授权的时候触发
                       console.log(res);
+                      uni.setStorageSync('token', res.token);
                       uni.switchTab({
                         url: '/pages/task/task' });
 
@@ -31504,6 +31507,7 @@ console.log(jwt);var _default =
               _this.$tool.getTokenValue({
                 success: function success(res) {
                   console.log(res);
+                  uni.setStorageSync('token', res.token);
                   console.log('开导开导开的课  登录成功');
                   uni.switchTab({
                     url: '/pages/task/task' });
@@ -55618,7 +55622,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+/* WEBPACK VAR INJECTION */(function(uni, uniCloud) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
 var _weatherData = _interopRequireDefault(__webpack_require__(/*! @/pages/home/weatherData.json */ 360));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var _default =
 
 {
@@ -55635,18 +55639,21 @@ var _weatherData = _interopRequireDefault(__webpack_require__(/*! @/pages/home/w
 
       areaId: '',
       weatherInfo: {},
-      weatherData: _weatherData.default };
+      weatherData: _weatherData.default,
+
+      token: '',
+      userXiandou: {
+        xiandou: 0,
+        exchangeNum: 0 } };
+
 
   },
   onShow: function onShow() {
-    /* setTimeout(function() {
-                             	wx.showTabBar();
-                             }, 500) */
-    // this.$data.adaptation = this.signAdaptation();
-    console.log(this.$data.adaptation);
-    this.areaId = uni.getStorageSync('areaId');
+
+    this.getCurrentUserInfo();
   },
   onLoad: function onLoad() {var _this2 = this;
+    this.$data.token = uni.getStorageSync('token');
     uni.getSystemInfo({
       success: function success(res) {// 需要使用箭头函数，swiper 高度才能设置成功
         // 获取windowHeight可以获取的高度，窗口高度减去导航栏高度
@@ -55675,26 +55682,25 @@ var _weatherData = _interopRequireDefault(__webpack_require__(/*! @/pages/home/w
   },
   methods: {
 
+    // 获取当前用户的仙豆和兑换数据
+    getCurrentUserInfo: function getCurrentUserInfo() {var _this3 = this;
+      uniCloud.callFunction({
+        name: 'update_xiandou',
+        data: {
+          token: this.token } }).
 
-    // 个人信息
-    goMyInfoBtn: function goMyInfoBtn() {
-      var openId = uni.getStorageSync('openId');
-      if (openId === '' || openId === null || openId === undefined) {
-        // 这时候需要用户重新登录
-        uni.reLaunch({
-          url: '/pages/login/login' });
 
-        return;
-      } else {
-        uni.navigateTo({
-          url: '../my/myInfo' });
-
-      }
-
+      then(function (res) {
+        uni.hideLoading();
+        console.log(res);
+        var Data = res.result.data;
+        _this3.userXiandou = Data;
+      });
     },
 
+
     // 获取天气预报
-    getweatherInfo: function getweatherInfo() {var _this3 = this;
+    getweatherInfo: function getweatherInfo() {var _this4 = this;
       uni.request({
         url: 'http://wthrcdn.etouch.cn/weather_mini?city=杭州',
         method: 'GET',
@@ -55705,9 +55711,9 @@ var _weatherData = _interopRequireDefault(__webpack_require__(/*! @/pages/home/w
           // console.log("今天最高温度",res.data.data.forecast[0].high);
           // console.log("今天最低温度",res.data.data.forecast[0].low);
           // console.log("目前气温",res.data.data.wendu);
-          var exchangeInfo = _this3.takePassWeather(res.data.data.forecast[0].type);
+          var exchangeInfo = _this4.takePassWeather(res.data.data.forecast[0].type);
           console.log(exchangeInfo);
-          _this3.weatherInfo = {
+          _this4.weatherInfo = {
             todayDate: res.data.data.forecast[0].date,
             todayWe: res.data.data.forecast[0].type,
             temperature: res.data.data.forecast[0].low + '~' + res.data.data.forecast[0].high,
@@ -55715,7 +55721,7 @@ var _weatherData = _interopRequireDefault(__webpack_require__(/*! @/pages/home/w
             tips: res.data.data.ganmao,
             icon: exchangeInfo.icon };
 
-          console.log(_this3.weatherInfo);
+          console.log(_this4.weatherInfo);
           // console.log(this.takePassWeather(this.weatherInfo.todayWe))
 
           // console.log("明天的天气",res.data.data.forecast[1].type);
@@ -55723,7 +55729,7 @@ var _weatherData = _interopRequireDefault(__webpack_require__(/*! @/pages/home/w
           // console.log("明天最低温度",res.data.data.forecast[1].low);
         },
         fail: function fail() {
-          _this3.openmsg("警告", "天气接口获取失败");
+          _this4.openmsg("警告", "天气接口获取失败");
         },
         complete: function complete() {} });
 
@@ -55752,7 +55758,7 @@ var _weatherData = _interopRequireDefault(__webpack_require__(/*! @/pages/home/w
         url: '/pages/home/exchange' });
 
     } } };exports.default = _default;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"], __webpack_require__(/*! ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/uni-cloud/dist/index.js */ 13)["default"]))
 
 /***/ }),
 /* 360 */

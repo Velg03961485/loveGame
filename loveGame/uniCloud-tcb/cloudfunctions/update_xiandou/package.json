@@ -1,0 +1,7 @@
+{
+  "name": "update_xiandou",
+  "dependencies": {},
+  "extensions": {
+    "uni-cloud-jql": {}
+  }
+}
