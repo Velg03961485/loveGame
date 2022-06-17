@@ -1,0 +1,7 @@
+{
+  "name": "update_exchange_status",
+  "dependencies": {},
+  "extensions": {
+    "uni-cloud-jql": {}
+  }
+}

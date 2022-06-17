@@ -1,0 +1,7 @@
+{
+  "name": "get_luck_draw",
+  "dependencies": {},
+  "extensions": {
+    "uni-cloud-jql": {}
+  }
+}
