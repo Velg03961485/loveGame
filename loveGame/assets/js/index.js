@@ -80,7 +80,7 @@ export default {
 								success:(res)=>{
 									console.log(res);
 									uni.setStorageSync('token', res.token);
-									console.log('开导开导开的课  登录成功')
+									// console.log('开导开导开的课  登录成功')
 									uni.switchTab({
 									    url: '/pages/task/task'
 									});
@@ -128,15 +128,7 @@ export default {
 			// },
 			
 			
-			getListData(){
-				uniCloud.callFunction({
-				    name: 'createCloud',
-				    data: { a: 1 }
-				  })
-				  .then(res => {
-						console.log(res)
-					});
-			},
+			
 
 		}
 	}

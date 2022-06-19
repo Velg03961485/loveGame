@@ -60,18 +60,23 @@ import weatherData from "@/pages/home/weatherData.json"
 
 			// 获取当前用户的仙豆和兑换数据
 			getCurrentUserInfo(){
-				uniCloud.callFunction({
-				    name: 'update_xiandou',
-				    data: { 
-						token:this.token,
-					}
-				  })
-				  .then(res => {
-						uni.hideLoading();
-						console.log(res)
-						let Data = res.result.data;
-						this.userXiandou = Data;
-					});
+				if(this.$data.token == '' || !this.$data.token){
+					
+				}else{
+					uniCloud.callFunction({
+					    name: 'update_xiandou',
+					    data: { 
+							token:this.token,
+						}
+					  })
+					  .then(res => {
+							uni.hideLoading();
+							console.log(res)
+							let Data = res.result.data;
+							this.userXiandou = Data;
+						});
+				}
+				
 			},
 			
 			
@@ -122,6 +127,12 @@ import weatherData from "@/pages/home/weatherData.json"
 
 			// 抽奖中心
 			goLuckDrawBtn(){
+				if(this.$data.token == '' || !this.$data.token){
+					uni.navigateTo({
+					    url: '/pages/index/index'
+					});
+					return;
+				}
 				uni.navigateTo({
 				    url: '/pages/home/luckDraw'
 				});
@@ -130,6 +141,12 @@ import weatherData from "@/pages/home/weatherData.json"
 			
 			// 兑换中心
 			goExchangeBtn(){
+				if(this.$data.token == '' || !this.$data.token){
+					uni.navigateTo({
+					    url: '/pages/index/index'
+					});
+					return;
+				}
 				uni.navigateTo({
 				    url: '/pages/home/exchange'
 				});

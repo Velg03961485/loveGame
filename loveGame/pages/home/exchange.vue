@@ -10,7 +10,7 @@
 				<view class="exchangeItBtnL">
 					{{item.exchangeNum}}仙豆
 				</view>
-				<view class="exchangeItBtnR">
+				<view class="exchangeItBtnR" :class="item.isExchange == 1 ? 'exchangeItBtnRDis' : ''" @click="takeExchangePost(item,index)">
 					兑换
 				</view>
 			</view>

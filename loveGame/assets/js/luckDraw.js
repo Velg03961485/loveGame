@@ -40,12 +40,9 @@ export default{
 			promptView:false,
 			
 			
-			// 网点
-			lightWebData:[
-				// {},{},{},{},{},{},{},
-				],
-			branchId:'',
 			
+			
+			token:'',
 		}
 	},
 	computed:{
@@ -78,6 +75,7 @@ export default{
 	  }
 	},
 	onLoad(){
+		this.$data.token = uni.getStorageSync('token');
 		uni.getSystemInfo({
 			success:  (res) => {     // 需要使用箭头函数，swiper 高度才能设置成功
 				// 获取swiperHeight可以获取的高度，窗口高度减去导航栏高度
@@ -156,21 +154,33 @@ export default{
 		// 点击 开始抽奖 按钮
 		handleActionStart() {
 			
-		  if(this.$data.canChouJiang === false){
-			  uni.showToast({
-			      title: '您的抽奖机会已用完~',
-			  	icon:'none',
-			      duration: 3000
-			  });
-			  return;
-		  }
-		  this.$data.canChouJiang = false;
+		  // if(this.$data.canChouJiang === false){
+			 //  uni.showToast({
+			 //      title: '您的抽奖机会已用完~',
+			 //  	icon:'none',
+			 //      duration: 3000
+			 //  });
+			 //  return;
+		  // }
+		  // this.$data.canChouJiang = false;
 		  // 抽到的奖品
 		  let _this = this;
 		  // _this.targetIndex = parseFloat(res.data.prizeId) - 1;
-		  _this.targetIndex = 3;
-		  console.log(_this.targetIndex)
-		  _this.onRotateStart();
+		  // _this.targetIndex = 3;
+		  uniCloud.callFunction({
+		      name: 'get_luck_draw',
+		      data: { 
+		  		token:_this.token
+		  	}
+		    })
+		    .then(res => {
+		  		console.log(res)
+		  		let Data = res.result.data;
+		  		_this.targetIndex = Data;
+				console.log(_this.targetIndex)
+				_this.onRotateStart();
+		  	});
+		  
 		 
 		 
 		},

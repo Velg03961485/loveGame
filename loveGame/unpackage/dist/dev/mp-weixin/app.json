@@ -1,8 +1,8 @@
 {
   "pages": [
+    "pages/task/task",
     "pages/home/home",
     "pages/index/index",
-    "pages/task/task",
     "pages/home/exchange",
     "pages/home/luckDraw"
   ],
@@ -23,7 +23,7 @@
         "pagePath": "pages/task/task",
         "iconPath": "static/task_1.png",
         "selectedIconPath": "static/task_1.png",
-        "text": "任务世界"
+        "text": "恋爱物语"
       },
       {
         "pagePath": "pages/home/home",

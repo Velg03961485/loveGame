@@ -31,7 +31,7 @@ export default{
 				this.listHeight = res.windowHeight - 150  + 'px'
 			}
 		});
-		// console.log(this.moment(new Date).format('Y-MM-DD'))
+		console.log(this.moment(new Date).format('Y-MM-DD'))
 		this.postTime = this.moment(new Date).format('Y-MM-DD');
 		this.getListData();
 		
@@ -71,6 +71,12 @@ export default{
 		
 		// 任务完成
 		takeOverBtn(item,index){
+			if(this.$data.token == '' || !this.$data.token){
+				uni.navigateTo({
+				    url: '/pages/index/index'
+				});
+				return;
+			}
 			if(item.taskIsOver == 1){
 				
 			}else{

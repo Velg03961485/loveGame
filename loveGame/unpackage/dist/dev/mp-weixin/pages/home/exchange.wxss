@@ -63,4 +63,8 @@
 	text-align: center;
 	margin-right: 20rpx;
 }
+.exchangeItBtnRDis{
+	background: #9EA3AA;
+	box-shadow: 0rpx 4rpx 16rpx 0rpx rgba(158,163,170,1);
+}
 

@@ -40,7 +40,7 @@ exports.main = async (event, context) => {
 		// 如果查询到数据 和 任务列表对比 任务当天的任务是否完成
 		for(let i = 0; i < taskData.length; i++){
 			taskData[i].taskIsOver = taskDayArr[taskData[i].keyWord];
-			taskData[i].taskTime = taskDayArr['task_time'];
+			taskData[i].taskTime = task_time;
 		}
 		console.log(taskData)
 		callback = {
