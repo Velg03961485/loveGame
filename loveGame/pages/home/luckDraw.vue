@@ -8,17 +8,17 @@
 				</view>
 				<view class="wardRingViewRing">
 					<view class="wardRingViewRingBox">
-						<image src="@/static/privateImg_44.png"  mode="" class="wardRingViewRingBox_a" :style="{
+						<image src="https://7463-tcb-ermyacvce0236c-5dyig4816a0e4-1310385595.tcb.qcloud.la/iuDcloud/privateImg_44.png"  mode="" class="wardRingViewRingBox_a" :style="{
 		
 		transform: `rotate(${canvasAngle + targetAngle}deg)`,
 		transitionDuration: `${transitionDuration}s`
 		}"></image>
 						<view class="wardRingViewRingBox_b">
-							<image src="@/static/privateImg_45.png"  mode="" class="wardRingViewRingBox_bIm1"></image>
-							<image src="@/static/privateImg_47.png"  mode="" class="wardRingViewRingBox_bIm2"></image>
+							<image src="https://7463-tcb-ermyacvce0236c-5dyig4816a0e4-1310385595.tcb.qcloud.la/iuDcloud/privateImg_45.png"  mode="" class="wardRingViewRingBox_bIm1"></image>
+							<image src="https://7463-tcb-ermyacvce0236c-5dyig4816a0e4-1310385595.tcb.qcloud.la/iuDcloud/privateImg_47.png"  mode="" class="wardRingViewRingBox_bIm2"></image>
 						</view>
 					</view>
-					<image src="@/static/privateImg_46.png"  mode="" class="wardRingViewBtn" @click="handleActionStart"></image>
+					<image src="https://7463-tcb-ermyacvce0236c-5dyig4816a0e4-1310385595.tcb.qcloud.la/iuDcloud/privateImg_46.png"  mode="" class="wardRingViewBtn" @click="handleActionStart"></image>
 				</view>
 			</view>
 		

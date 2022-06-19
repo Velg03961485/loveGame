@@ -2,7 +2,7 @@
 	<view class="home-page" :style="{height:windowHeight}">
 	
 		<view class="homeOne">
-			<image src="../../static/home_1.png" mode="" class="homeHeader"></image>
+			<image src="https://7463-tcb-ermyacvce0236c-5dyig4816a0e4-1310385595.tcb.qcloud.la/iuDcloud/home_1.png" mode="" class="homeHeader"></image>
 			<view class="homeInfo">
 				<view class="homeInfo_h">
 					<image :src="myInfo.headUrl" mode="" class="homeInfo_hC"></image>

@@ -82,24 +82,34 @@ import weatherData from "@/pages/home/weatherData.json"
 			
 			// 获取天气预报
 			getweatherInfo(){
-				uni.request({
-					url: 'http://wthrcdn.etouch.cn/weather_mini?city=杭州',
-					method: 'GET',
-					success: res => {
-						// console.log(res)
+				
+				uniCloud.callFunction({
+				    name: 'post_api_function',
+				    data: { 
+						data:{
+							city:'杭州'
+						},
+						apiUrl:'http://wthrcdn.etouch.cn/weather_mini',
+					}
+				  })
+				  .then(res => {
+						
+						
+						let Data = res.result;
+						// console.log(res.result)
 						// console.log(res.data.data.forecast[0])
 						// console.log("今天的天气",res.data.data.forecast[0].type);
 						// console.log("今天最高温度",res.data.data.forecast[0].high);
 						// console.log("今天最低温度",res.data.data.forecast[0].low);
 						// console.log("目前气温",res.data.data.wendu);
-						let exchangeInfo = this.takePassWeather(res.data.data.forecast[0].type);
-						console.log(exchangeInfo)
+						let exchangeInfo = this.takePassWeather(Data.data.data.forecast[0].type);
+						// console.log(exchangeInfo)
 						this.weatherInfo = {
-							todayDate:res.data.data.forecast[0].date,
-							todayWe:res.data.data.forecast[0].type,
-							temperature:res.data.data.forecast[0].low + '~' + res.data.data.forecast[0].high,
-							currentTem:res.data.data.wendu,
-							tips:res.data.data.ganmao,
+							todayDate:Data.data.data.forecast[0].date,
+							todayWe:Data.data.data.forecast[0].type,
+							temperature:Data.data.data.forecast[0].low + '~' + Data.data.data.forecast[0].high,
+							currentTem:Data.data.data.wendu,
+							tips:Data.data.data.ganmao,
 							icon:exchangeInfo.icon,
 						};
 						console.log(this.weatherInfo)
@@ -108,12 +118,42 @@ import weatherData from "@/pages/home/weatherData.json"
 						// console.log("明天的天气",res.data.data.forecast[1].type);
 						// console.log("明天最高温度",res.data.data.forecast[1].high);
 						// console.log("明天最低温度",res.data.data.forecast[1].low);
-					},
-					fail: () => {
-						this.openmsg("警告","天气接口获取失败")
-					},
-					complete: () => {}
-				});
+						
+					});
+				
+				
+				// uni.request({
+				// 	url: 'https://wthrcdn.etouch.cn/weather_mini?city=杭州',
+				// 	method: 'GET',
+				// 	success: res => {
+				// 		// console.log(res)
+				// 		// console.log(res.data.data.forecast[0])
+				// 		// console.log("今天的天气",res.data.data.forecast[0].type);
+				// 		// console.log("今天最高温度",res.data.data.forecast[0].high);
+				// 		// console.log("今天最低温度",res.data.data.forecast[0].low);
+				// 		// console.log("目前气温",res.data.data.wendu);
+				// 		let exchangeInfo = this.takePassWeather(res.data.data.forecast[0].type);
+				// 		console.log(exchangeInfo)
+				// 		this.weatherInfo = {
+				// 			todayDate:res.data.data.forecast[0].date,
+				// 			todayWe:res.data.data.forecast[0].type,
+				// 			temperature:res.data.data.forecast[0].low + '~' + res.data.data.forecast[0].high,
+				// 			currentTem:res.data.data.wendu,
+				// 			tips:res.data.data.ganmao,
+				// 			icon:exchangeInfo.icon,
+				// 		};
+				// 		console.log(this.weatherInfo)
+				// 		// console.log(this.takePassWeather(this.weatherInfo.todayWe))
+						
+				// 		// console.log("明天的天气",res.data.data.forecast[1].type);
+				// 		// console.log("明天最高温度",res.data.data.forecast[1].high);
+				// 		// console.log("明天最低温度",res.data.data.forecast[1].low);
+				// 	},
+				// 	fail: () => {
+				// 		// this.openmsg("警告","天气接口获取失败")
+				// 	},
+				// 	complete: () => {}
+				// });
 			},
 			
 			// 通过json数据查找 当天的天气信息
