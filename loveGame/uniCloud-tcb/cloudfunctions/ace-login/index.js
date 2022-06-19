@@ -1,8 +1,8 @@
 'use strict';
 const crypto = require('crypto') //node自带模块
 // const jwt = require('./jwt.js')  //引入jwt-simple中的
-const jwt = require('jwt-js') //引入jwt-simple中的
-console.log(jwt)
+// const jwt = require('jwt-js') //引入jwt-simple中的
+// console.log(jwt)
 const loginConfig = {
   AppId: 'wxd2988d3ed90c3a4d', //微信小程序AppId
   AppSecret: '5687b58b4f05ead99e14a12504f94777' //微信小程序AppSecret
