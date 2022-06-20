@@ -3,6 +3,7 @@
 import taskData from "@/pages/task/taskData.json"
 import moment from 'moment';
 import 'moment/locale/zh-cn';
+const throttleFun = require("@/config/throttle.js");
 export default{
 	data(){
 		return{
@@ -52,25 +53,36 @@ export default{
 		
 		
 		getListData(){
-			uni.showLoading({
-				title: '加载中'
-			});
-			uniCloud.callFunction({
-			    name: 'get_task_list',
-			    data: { 
-					postTime:this.postTime,
-				}
-			  })
-			  .then(res => {
-					uni.hideLoading();
-					console.log(res)
-					let Data = res.result.data;
-					this.taskData = Data;
+			if(this.token == '' || !this.token){
+				this.taskData = taskData;
+			}else{
+				uni.showLoading({
+					title: '加载中'
 				});
+				uniCloud.callFunction({
+				    name: 'get_task_list',
+				    data: { 
+						postTime:this.postTime,
+						token:this.token,
+					}
+				  })
+				  .then(res => {
+						uni.hideLoading();
+						console.log(res)
+						let Data = res.result.data;
+						this.taskData = Data;
+					});
+			}
+			
 		},
 		
 		// 任务完成
-		takeOverBtn(item,index){
+		// takeOverBtn(item,index){
+			
+			
+		// },
+		
+		takeOverBtn:throttleFun.throttle(function(){
 			if(this.$data.token == '' || !this.$data.token){
 				uni.navigateTo({
 				    url: '/pages/index/index'
@@ -105,7 +117,7 @@ export default{
 						}
 					});
 			}
-			
-		},
+		},3000)
+		
 	},
 }

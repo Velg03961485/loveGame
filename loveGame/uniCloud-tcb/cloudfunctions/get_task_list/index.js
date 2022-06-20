@@ -7,11 +7,13 @@ exports.main = async (event, context) => {
 	let callback = {};
 	// 接口传值
 	let task_time = event.postTime;
+	let openId = event.token;
 	// 根据传入的时间查询 当天的任务表是否存在
 	const dbCmd = db.command
 	const collection = db.collection('task_day');
 	let isHasRes = await collection.where({
-		task_time: dbCmd.eq(task_time)
+		task_time: dbCmd.eq(task_time),
+		openId: dbCmd.eq(openId),
 	})
 	.get();
 	// console.log(isHasRes)
@@ -22,6 +24,7 @@ exports.main = async (event, context) => {
 	if(isHasRes.data.length == 0){
 		let res = await collection.add({
 			task_time: task_time,
+			openId: openId,
 			wash_isover: 0,
 			sleep_isover: 0,
 			eat_isover: 0,
