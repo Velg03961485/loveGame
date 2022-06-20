@@ -16,7 +16,7 @@ exports.main = async (event, context) => {
 		openId: dbCmd.eq(openId),
 	})
 	.get();
-	// console.log(isHasRes)
+	console.log(isHasRes)
 	const res = await db.collection('task_list').get();
 	let taskDayArr = isHasRes.data[0];
 	let taskData = res.data;

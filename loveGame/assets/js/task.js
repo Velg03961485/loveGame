@@ -82,7 +82,8 @@ export default{
 			
 		// },
 		
-		takeOverBtn:throttleFun.throttle(function(){
+		takeOverBtn:throttleFun.throttle(function(item,index){
+			console.log('1')
 			if(this.$data.token == '' || !this.$data.token){
 				uni.navigateTo({
 				    url: '/pages/index/index'

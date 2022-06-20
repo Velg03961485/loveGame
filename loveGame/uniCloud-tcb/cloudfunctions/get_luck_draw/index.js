@@ -111,14 +111,12 @@ exports.main = async (event, context) => {
 			randomNum = 7;
 		}
 		console.log(randomNum);
-	
-	let index = Math.floor((Math.random()*arrData.length)); 
-	let winNum = arrData[index];
-	// callback = {
-	// 	data: index,
-	// 	mesg: 'success',
-	// 	code: 200,
-	// };
 
-	// return callback
+	callback = {
+		data: randomNum,
+		mesg: 'success',
+		code: 200,
+	};
+
+	return callback
 };

@@ -13,7 +13,8 @@ exports.main = async (event, context) => {
 	const dbCmd = db.command
 	const collection = db.collection('task_day');
 	let isHasRes = await collection.where({
-		task_time: dbCmd.eq(task_time)
+		task_time: dbCmd.eq(task_time),
+		openId: dbCmd.eq(openId),
 	})
 	.get();
 	console.log(isHasRes)
@@ -25,7 +26,8 @@ exports.main = async (event, context) => {
 		arr[key_word] = 1;
 		console.log(arr);
 		let res = await collection.where({
-			task_time: dbCmd.eq(task_time)
+			task_time: dbCmd.eq(task_time),
+			openId: dbCmd.eq(openId),
 		}).update(arr);
 		console.log(res);
 		// 更新仙豆
