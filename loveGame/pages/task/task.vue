@@ -5,18 +5,18 @@
 			<swiper class="swiper" circular :indicator-dots="indicatorDots" :autoplay="autoplay" :interval="interval"
 				:duration="duration">
 				<swiper-item>
-					<view class="swiper-item uni-bg-red">
-						<image src="https://7463-tcb-ermyacvce0236c-5dyig4816a0e4-1310385595.tcb.qcloud.la/iuDcloud/swp_3.jpeg" mode="aspectFill"></image>
+					<view class="swiper-item">
+						<image class="swiperImg" src="https://7463-tcb-ermyacvce0236c-5dyig4816a0e4-1310385595.tcb.qcloud.la/iuDcloud/swp_3.jpeg" mode="aspectFill"></image>
 					</view>
 				</swiper-item>
 				<swiper-item>
-					<view class="swiper-item uni-bg-green">
-						<image src="https://7463-tcb-ermyacvce0236c-5dyig4816a0e4-1310385595.tcb.qcloud.la/iuDcloud/swp_2.jpeg" mode="aspectFill"></image>
+					<view class="swiper-item">
+						<image class="swiperImg" src="https://7463-tcb-ermyacvce0236c-5dyig4816a0e4-1310385595.tcb.qcloud.la/iuDcloud/swp_2.jpeg" mode="aspectFill"></image>
 					</view>
 				</swiper-item>
 				<swiper-item>
-					<view class="swiper-item uni-bg-blue">
-						<image src="https://7463-tcb-ermyacvce0236c-5dyig4816a0e4-1310385595.tcb.qcloud.la/iuDcloud/swp_1.jpeg" mode="aspectFill"></image>
+					<view class="swiper-item">
+						<image class="swiperImg" src="https://7463-tcb-ermyacvce0236c-5dyig4816a0e4-1310385595.tcb.qcloud.la/iuDcloud/swp_1.jpeg" mode="aspectFill"></image>
 					</view>
 				</swiper-item>
 			</swiper>
