@@ -39,20 +39,17 @@ exports.main = async (event, context) => {
 		console.log(taskListData);
 		let taskScore = taskListData.data[0].taskScore;
 		const xiandouDB = db.collection('user_xiandou');
-		xiandouDB.where({
+		let xiandouDBData = await xiandouDB.where({
 			openId: dbCmd.eq(openId)
 		})
 		.get()
-		.then((res)=>{
-			console.log(res);
-			let Data = res.data[0];
-			let pushArr = {
-				'xiandou': Data['xiandou'] + taskScore
-			};
-			xiandouDB.where({
-				openId: dbCmd.eq(openId)
-			}).update(pushArr);
-		})
+		let Data = xiandouDBData.data[0];
+		let pushArr = {
+			'xiandou': Data['xiandou'] + taskScore
+		};
+		xiandouDB.where({
+			openId: dbCmd.eq(openId)
+		}).update(pushArr);
 		
 		callback = {
 			data:'操作成功',

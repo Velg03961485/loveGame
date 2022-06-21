@@ -40,7 +40,7 @@
 					任务描述:{{item.taskDetail}}
 				</view>
 				<view class="taskItemThree">
-					<view class="taskItemThreeL">任务时间：{{item.taskTime}}</view>
+					<view class="taskItemThreeL">任务时间：{{item.taskTime || postTime}}</view>
 					<view class="taskItemThreeR" :class="item.taskIsOver == 1 ? 'IUt-icon-checked' : ''">
 						
 					</view>
