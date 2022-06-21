@@ -5,7 +5,7 @@
 			<image src="https://7463-tcb-ermyacvce0236c-5dyig4816a0e4-1310385595.tcb.qcloud.la/iuDcloud/home_1.png" mode="" class="homeHeader"></image>
 			<view class="homeInfo">
 				<view class="homeInfo_h">
-					<image :src="myInfo.headUrl" mode="" class="homeInfo_hC"></image>
+					<image :src="myInfo.headUrl" mode="" class="homeInfo_hC" @click="takeEditorBtn"></image>
 				</view>
 				<view class="homeInfo_name">
 					{{myInfo.nickName}}
@@ -97,6 +97,33 @@
 				
 			</view>
 		</view>
+		
+		<!-- 修改头像弹窗 -->
+		<view class="editorHead" v-if="editorHeadShow" :style="{height:windowHeight}">
+			<view class="editorHeadCe">
+				<view class="editorHeadCeTop">
+					请完善个人信息
+				</view>
+				<button class="avatar-wrapper" open-type="chooseAvatar" @chooseavatar="onChooseAvatar">
+				  <image class="avatar" :src="avatarUrl"></image>
+				</button> 
+				<view class="editorHeadCeIn">
+					<view class="editorHeadCeInTit">
+						昵称
+					</view>
+					<input type="nickname" class="weui-input" placeholder="请输入昵称"/>
+				</view>
+				<view class="editorHeadCeBot">
+					<view class="editorHeadCeBotL" @click="takeCancelBtn">
+						取消
+					</view>
+					<view class="editorHeadCeBotR" @click="takeSureBtn">
+						确认修改
+					</view>
+				</view>
+			</view>
+		</view>
+		
 		
 	</view>
 </template>

@@ -22,6 +22,10 @@ import weatherData from "@/pages/home/weatherData.json"
 					xiandou:0,
 					exchangeNum:0,
 				},
+				
+				
+				editorHeadShow:false,
+				avatarUrl:'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0',
           }
       },
 	  onShow(){
@@ -50,6 +54,13 @@ import weatherData from "@/pages/home/weatherData.json"
 			  },
 			 
 			});
+			 // wx.getUserProfile({
+			 //      desc: '用于完善会员资料', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
+			 //      success: (infoRes) => {
+			 //        _this.$data.myInfo.nickName = infoRes.userInfo.nickName;
+			 //        _this.$data.myInfo.headUrl = infoRes.userInfo.avatarUrl;
+			 //      }
+			 //    })
 			console.log(this.weatherData)
 			
 	  },
@@ -57,6 +68,25 @@ import weatherData from "@/pages/home/weatherData.json"
 
       },
       methods:{
+		  
+		takeEditorBtn(){
+			uni.hideTabBar();
+		  this.editorHeadShow = true;
+		},
+		onChooseAvatar(e) {
+		  console.log(e)
+		  const { avatarUrl } = e.detail 
+		  this.avatarUrl = avatarUrl;
+		},
+			
+		takeCancelBtn(){
+			this.editorHeadShow = false;
+			uni.showTabBar();
+		},
+		takeSureBtn(){
+			this.editorHeadShow = false;
+			uni.showTabBar();
+		},
 
 			// 获取当前用户的仙豆和兑换数据
 			getCurrentUserInfo(){

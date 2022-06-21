@@ -2,7 +2,7 @@
 	<view class="exchange-page">
 		
 		<view class="exchangeIt" v-for="(item,index) in exchangeData" :key="index">
-			<image :src="imgData[item.image]" mode="aspectFill" class="exchangeItImg"></image>
+			<image :src="item.image" mode="aspectFill" class="exchangeItImg"></image>
 			<view class="exchangeItDe">
 				{{item.desc}}
 			</view>

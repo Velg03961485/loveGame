@@ -31498,8 +31498,12 @@ var _weatherData = _interopRequireDefault(__webpack_require__(/*! @/pages/home/w
       token: '',
       userXiandou: {
         xiandou: 0,
-        exchangeNum: 0 } };
+        exchangeNum: 0 },
 
+
+
+      editorHeadShow: false,
+      avatarUrl: 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0' };
 
   },
   onShow: function onShow() {
@@ -31528,6 +31532,13 @@ var _weatherData = _interopRequireDefault(__webpack_require__(/*! @/pages/home/w
       } });
 
 
+    // wx.getUserProfile({
+    //      desc: '用于完善会员资料', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
+    //      success: (infoRes) => {
+    //        _this.$data.myInfo.nickName = infoRes.userInfo.nickName;
+    //        _this.$data.myInfo.headUrl = infoRes.userInfo.avatarUrl;
+    //      }
+    //    })
     console.log(this.weatherData);
 
   },
@@ -31535,6 +31546,25 @@ var _weatherData = _interopRequireDefault(__webpack_require__(/*! @/pages/home/w
 
   },
   methods: {
+
+    takeEditorBtn: function takeEditorBtn() {
+      uni.hideTabBar();
+      this.editorHeadShow = true;
+    },
+    onChooseAvatar: function onChooseAvatar(e) {
+      console.log(e);var
+      avatarUrl = e.detail.avatarUrl;
+      this.avatarUrl = avatarUrl;
+    },
+
+    takeCancelBtn: function takeCancelBtn() {
+      this.editorHeadShow = false;
+      uni.showTabBar();
+    },
+    takeSureBtn: function takeSureBtn() {
+      this.editorHeadShow = false;
+      uni.showTabBar();
+    },
 
     // 获取当前用户的仙豆和兑换数据
     getCurrentUserInfo: function getCurrentUserInfo() {var _this3 = this;
@@ -55764,24 +55794,14 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni, uniCloud) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
-// import exc_1 from "@/static/exc_1.png";
-// import exc_2 from "@/static/exc_2.png";
-// import exc_3 from "@/static/exc_3.png";
-// import exc_4 from "@/static/exc_4.png";
-// import exc_5 from "@/static/exc_5.png";
-// import exchangeData from "@/pages/home/exchangeData.json";
-var _default =
+/* WEBPACK VAR INJECTION */(function(uni, uniCloud) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default =
+
+
 {
   data: function data() {
     return {
       // exc_1:exc_1,
-      imgData: {
-        exc_1: 'https://7463-tcb-ermyacvce0236c-5dyig4816a0e4-1310385595.tcb.qcloud.la/iuDcloud/exc_1.png',
-        exc_2: 'https://7463-tcb-ermyacvce0236c-5dyig4816a0e4-1310385595.tcb.qcloud.la/iuDcloud/exc_2.png',
-        exc_3: 'https://7463-tcb-ermyacvce0236c-5dyig4816a0e4-1310385595.tcb.qcloud.la/iuDcloud/exc_3.png',
-        exc_4: 'https://7463-tcb-ermyacvce0236c-5dyig4816a0e4-1310385595.tcb.qcloud.la/iuDcloud/exc_4.png',
-        exc_5: 'https://7463-tcb-ermyacvce0236c-5dyig4816a0e4-1310385595.tcb.qcloud.la/iuDcloud/exc_5.png' },
+      remoteUrl: '',
 
       // exchangeData:exchangeData,
       exchangeData: [],
