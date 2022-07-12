@@ -33,6 +33,7 @@
 	display: flex;
 	flex-direction: column;
 	margin-top: -77rpx;
+	position: relative;
 }
 .homeInfo_hC{
 	width: 145rpx;
@@ -40,6 +41,14 @@
 	border-radius: 50%;
 	margin: 0 auto;
 	margin-top: 10rpx;
+}
+.homeInfo_hEd{
+	width: 40rpx;
+	height: 40rpx;
+	position: absolute;
+	bottom: 0;
+	right: 10rpx;
+	z-index: 3;
 }
 .homeInfo_name{
 	height: 59rpx;
@@ -217,7 +226,6 @@
 }
 .editorHead{
 	width: 100%;
-	height: 603rpx;
 	background: rgba(0, 0, 0, 0.6);
 	position: fixed;
 	left: 0;
@@ -233,9 +241,8 @@
 	background-color: #FFFFFF;
 	display: flex;
 	flex-direction: column;
-	left: 0;
-	bottom: 0;
-	border-radius: 20rpx 20rpx 0rpx 0rpx;
+	border-radius: 20rpx;
+	margin-top: 0;
 }
 .editorHeadCeTop{
 	font-size: 32rpx;
@@ -284,7 +291,7 @@ button{
 	justify-content: center;
 	position: absolute;
 	left: 0;
-	bottom: 0;
+	bottom: 60rpx;
 }
 .editorHeadCeBotL{
 	width: 330rpx;

@@ -6,6 +6,9 @@
 			<view class="homeInfo">
 				<view class="homeInfo_h">
 					<image :src="myInfo.headUrl" mode="" class="homeInfo_hC" @click="takeEditorBtn"></image>
+					<view class="IUt-icon-dianji homeInfo_hEd">
+						
+					</view>
 				</view>
 				<view class="homeInfo_name">
 					{{myInfo.nickName}}
@@ -111,7 +114,7 @@
 					<view class="editorHeadCeInTit">
 						昵称
 					</view>
-					<input type="nickname" class="weui-input" placeholder="请输入昵称"/>
+					<input type="nickname" v-model="nickname" class="weui-input" placeholder="请输入昵称"/>
 				</view>
 				<view class="editorHeadCeBot">
 					<view class="editorHeadCeBotL" @click="takeCancelBtn">

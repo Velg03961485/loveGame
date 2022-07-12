@@ -26,6 +26,7 @@ import weatherData from "@/pages/home/weatherData.json"
 				
 				editorHeadShow:false,
 				avatarUrl:'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0',
+				nickname:'',
           }
       },
 	  onShow(){
@@ -38,29 +39,24 @@ import weatherData from "@/pages/home/weatherData.json"
 				success:  (res) => {     // 需要使用箭头函数，swiper 高度才能设置成功
 					// 获取windowHeight可以获取的高度，窗口高度减去导航栏高度
 					console.log(res)
-					this.windowHeight = res.windowHeight  + 'px'
+					this.windowHeight = res.screenHeight  + 'px'
 					console.log(this.windowHeight)
 				
 				}
 			  });
 			this.getweatherInfo();
-			let _this = this;
-			uni.getUserInfo({
-			  provider: 'weixin', 
-			  success: function (infoRes) {
-				  console.log(infoRes.userInfo);
-				_this.$data.myInfo.nickName = infoRes.userInfo.nickName;
-				_this.$data.myInfo.headUrl = infoRes.userInfo.avatarUrl;
-			  },
+			this.getUserHeadInfo();
+			// let _this = this;
+			// uni.getUserInfo({
+			//   provider: 'weixin', 
+			//   success: function (infoRes) {
+			// 	  console.log(infoRes.userInfo);
+			// 	_this.$data.myInfo.nickName = infoRes.userInfo.nickName;
+			// 	_this.$data.myInfo.headUrl = infoRes.userInfo.avatarUrl;
+			//   },
 			 
-			});
-			 // wx.getUserProfile({
-			 //      desc: '用于完善会员资料', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
-			 //      success: (infoRes) => {
-			 //        _this.$data.myInfo.nickName = infoRes.userInfo.nickName;
-			 //        _this.$data.myInfo.headUrl = infoRes.userInfo.avatarUrl;
-			 //      }
-			 //    })
+			// });
+			
 			console.log(this.weatherData)
 			
 	  },
@@ -68,6 +64,24 @@ import weatherData from "@/pages/home/weatherData.json"
 
       },
       methods:{
+		  
+		// 获取用户的头像信息
+		getUserHeadInfo(){
+		  uniCloud.callFunction({
+			  name: 'update_xiandou',
+			  data: { 
+				token:this.token,
+				operationMode:'getUserInfo',
+			}
+			})
+			.then(res => {
+				
+				console.log(res)
+				let Data = res.result.data;
+				this.$data.myInfo.nickName = Data.nickName;
+				this.$data.myInfo.headUrl = Data.avatarUrl;
+			});
+		},
 		  
 		takeEditorBtn(){
 			uni.hideTabBar();
@@ -85,7 +99,23 @@ import weatherData from "@/pages/home/weatherData.json"
 		},
 		takeSureBtn(){
 			this.editorHeadShow = false;
-			uni.showTabBar();
+			console.log(this.avatarUrl)
+			console.log(this.nickname)
+			uniCloud.callFunction({
+				name: 'update_xiandou',
+				data: { 
+					token:this.token,
+					avatarUrl:this.avatarUrl,
+					nickname:this.nickname,
+					operationMode:'updateUserInfo',
+				}
+				})
+				.then(res => {
+					this.$data.myInfo.nickName = this.nickname;
+					this.$data.myInfo.headUrl = this.avatarUrl;
+					uni.showTabBar();
+				});
+			
 		},
 
 			// 获取当前用户的仙豆和兑换数据
@@ -97,6 +127,7 @@ import weatherData from "@/pages/home/weatherData.json"
 					    name: 'update_xiandou',
 					    data: { 
 							token:this.token,
+							operationMode:'xiandou',
 						}
 					  })
 					  .then(res => {
