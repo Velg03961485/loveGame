@@ -1,0 +1,7 @@
+{
+  "name": "post_api_function",
+  "dependencies": {},
+  "extensions": {
+    "uni-cloud-jql": {}
+  }
+}

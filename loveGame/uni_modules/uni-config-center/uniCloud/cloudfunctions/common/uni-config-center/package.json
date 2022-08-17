@@ -5,8 +5,5 @@
   "main": "index.js",
   "keywords": [],
   "author": "DCloud",
-  "license": "Apache-2.0",
-  "dependencies": {
-    "hello-common": "file:../../../../../../uniCloud-tcb/cloudfunctions/common/hello-common"
-  }
+  "license": "Apache-2.0"
 }
